@@ -14,9 +14,9 @@ public class ConnectionFactory {
     public Connection getConnection() {
         try {
             return DriverManager
-                    .getConnection(stringConexao
-                            , usuarioBD, senhaBD);
+                    .getConnection(stringConexao, usuarioBD, senhaBD);
         }catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException();
         }
     }

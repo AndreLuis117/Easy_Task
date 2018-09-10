@@ -56,7 +56,7 @@ public class UserDAO {
 
 
 
-    // Mï¿½todo para excluir um Usuï¿½rio especï¿½fico pelo Id
+    // Método para excluir um usuário pelo ID
     public void deleteUser(long aux) {
         try {
             // Cria a conexï¿½o com o banco de dados
@@ -91,19 +91,21 @@ public class UserDAO {
         }
     }
 
-    public void selectNome(User user) {
+    public void selectNome(String email) {
         try {
             // Cria a conexão com o banco de dados
             Connection conn = (new ConnectionFactory()).getConnection();
 
-            Statement stat = conn.createStatement();
-            String query = "select usuarioNome from usuarios where usuarioId = " + "select usuarioId from usuarios where = " + user.getName();
-            ResultSet rs = stat.executeQuery(query);
+            //String consulta = " select usuarioNome from usuarios where usuarioEmail = '?' ";
+            PreparedStatement p = conn.prepareStatement("select usuarioNome from usuarios where usuarioEmail = ? ");
+            p.setString(1, email);
+
+            ResultSet rs = p.executeQuery();
             rs.next();
-            String result = rs.getString("UsuarioNome");
+            String result = rs.getString("usuarioNome");
 
             System.out.println(result);
-
+            p.close();
             // Fecha conexão com o banco de dados
             conn.close();
         }catch(Exception e) {

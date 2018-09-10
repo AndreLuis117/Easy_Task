@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("EASY TASK");
         //atribui o nome da janela
         //atribui o tamanho da janela
-        primaryStage.setScene(new Scene(root, 1200, 600));
+        primaryStage.setScene(new Scene(root, 1366, 768));
         //exibe a janela
         primaryStage.show();
     }
