@@ -32,18 +32,19 @@ public class UserDAO {
     }
 
 
-    // Mï¿½todo para atualizar
+    // Método para atualizar dados de um usuário
     public void updateUser (User user) {
         try {
             // Cria a conexão com o banco de dados
             Connection conn = (new ConnectionFactory()).getConnection();
             PreparedStatement p =
-                    conn.prepareStatement("update usuarios set usuarioNome = ?, usuarioSobrenome = ?, usuarioSenha = ?, usuarioEmail = ? where usuarioId = 5");
+                    conn.prepareStatement("update usuarios set usuarioNome = ?, usuarioSobrenome = ?, usuarioSenha = ?, usuarioEmail = ? where usuarioEmail = ?");
 
             p.setString(1, user.getName());
             p.setString(2, user.getLastname());
             p.setString(3, user.getPassword());
             p.setString(4, user.getEmail());
+            p.setString(5, Sessao.getUsuario().getEmail());
 
             p.execute();
             p.close();
@@ -90,8 +91,8 @@ public class UserDAO {
             e.printStackTrace();
         }
     }
-
-    public void selectNome(String email) {
+    // método para retornar o nome do usuário Logado na sessao
+    public String selectNome(String email) {
         try {
             // Cria a conexão com o banco de dados
             Connection conn = (new ConnectionFactory()).getConnection();
@@ -104,13 +105,14 @@ public class UserDAO {
             rs.next();
             String result = rs.getString("usuarioNome");
 
-            System.out.println(result);
+
             p.close();
             // Fecha conexão com o banco de dados
             conn.close();
         }catch(Exception e) {
             e.printStackTrace();
         }
+        return
     }
 
 
