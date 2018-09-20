@@ -8,15 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class Sessao {
-    public static User getUsuario() {
-        return usuario;
+    public static User getUsuarioSessao() {
+        return usuarioSessao;
     }
 
-    private static User usuario;
+    private static User usuarioSessao;
 
 
     public static boolean validarLogin (String email, String senha){
-        boolean validado = false;
+        boolean validacaoLogin = false;
         try {
         Connection conn = (new ConnectionFactory()).getConnection();
         PreparedStatement p = conn.prepareStatement("select usuarioEmail, usuarioSenha from usuarios where usuarioEmail = ? and usuarioSenha = ?");
@@ -25,13 +25,13 @@ public class Sessao {
             ResultSet rs = p.executeQuery();
 
             if (rs.next()) {
-                email = rs.getString("usuarioNome");
+                email = rs.getString("usuarioEmail");
                 senha = rs.getString("usuarioSenha");
-                validado = true;
+                validacaoLogin = true;
 
             }
             else {
-                System.out.println("Vc nao tem acesso ou seu usuário/senha são inválidos");
+                validacaoLogin = false;
 
             }
             p.close();
@@ -40,22 +40,22 @@ public class Sessao {
         }catch(Exception e) {
             e.printStackTrace();
         }
-        return validado;
+        return validacaoLogin;
 
     }
 
     public static void fazerLogin(User user) {
 
-        Sessao.usuario = user;
+        Sessao.usuarioSessao = user;
         }
 
 
     public static void deslogar() {
-        Sessao.usuario = null;
+        Sessao.usuarioSessao = null;
 
     }
     public static boolean temUsarioLogado () {
-        return usuario != null;
+        return usuarioSessao != null;
 
     }
 

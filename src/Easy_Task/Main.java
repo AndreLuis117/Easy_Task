@@ -17,16 +17,18 @@ public class Main {
         User user = new User();
         user.setName("André");
         user.setLastname("Cardoso");
-        user.setPassword("andre7678");
+        user.setPassword("a78");
         user.setEmail("emaildante");
 
         UserDAO userDAO = new UserDAO();
-        Sessao sessao1 = new Sessao();
-        Sessao.fazerLogin(user);
+        Sessao sessao = new Sessao();
+        System.out.println(userDAO.validarEmail("email"));
+        //Sessao.fazerLogin(user);
         //userDAO.deleteAll();
         //userDAO.insert(user);
-        userDAO.selectNome(Sessao.getUsuario().getEmail());
-        //System.out.println(Sessao.getUsuario().getEmail() );
+        //userDAO.selectNome(Sessao.getUsuarioSessao().getEmail());
+        //Sessao.validarLogin(user.getEmail(), user.getPassword());
+        //System.out.println(Sessao.getUsuarioSessao().getEmail() );
         //userDAO.deleteUser(3);
         //userDAO.deleteAll();
 
