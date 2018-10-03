@@ -144,6 +144,29 @@ public class UserDAO {
         }
         return validacaoEmail;
     }
+    public long selectId(String email) {
+        try {
+            // Cria a conexão com o banco de dados
+            Connection conn = (new ConnectionFactory()).getConnection();
+
+            //String consulta = " select usuarioNome from usuarios where usuarioEmail = '?' ";
+            PreparedStatement p = conn.prepareStatement("select usuarioId from usuarios where usuarioEmail = ? ");
+            p.setString(1, email);
+
+            ResultSet rs = p.executeQuery();
+            rs.next();
+            long result = rs.getLong("usuarioId");
+            Sessao.getUsuarioSessao().setId(result);
+
+
+            p.close();
+            // Fecha conexão com o banco de dados
+            conn.close();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return Sessao.getUsuarioSessao().getId();
+    }
 
 
 

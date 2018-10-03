@@ -36,16 +36,15 @@ public class Controller_Tela_Login {//implements Initializable {
          user.setPassword(passwordField.getText());
 
          user.setEmail(emailField.getText());
+         Sessao.fazerLogin(user);
 
          try {
              FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("TelaHome.fxml")));
-
              Parent root = loader.load();
              Controller_Tela_Home controller = loader.getController();
              Stage primaryStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-             controller.setPreviousScene(primaryStage.getScene());
+             //controller.setPreviousScene(primaryStage.getScene());
              primaryStage.setScene(new Scene(root));
-             Sessao.fazerLogin(user);
          } catch (Exception e) {
              e.printStackTrace();
 
@@ -54,7 +53,8 @@ public class Controller_Tela_Login {//implements Initializable {
 
      }
      else{
-         msgLogin.setText("Usuário e/ou senha errado ou você não tem acesso!");
+         msgLogin.setText("Usuário e/ou senha errado!");
+
 
 
 
