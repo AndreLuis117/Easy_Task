@@ -75,7 +75,7 @@ public class Controller_Tela_Login {//implements Initializable {
 
     public void noAccountClick(ActionEvent mouseEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("TelaDeCadastro.fxml")));
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("TelaDeCadastroUsuario.fxml")));
 
             Parent root = loader.load();
             Controller_Tela_Cadastro controller = loader.getController();

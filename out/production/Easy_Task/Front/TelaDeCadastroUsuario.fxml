@@ -59,7 +59,7 @@
       </Label>
       <Pane prefHeight="132.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <Label fx:id="msgCad" layoutX="14.0" layoutY="11.0" prefHeight="115.0" prefWidth="574.0" style="-fx-background-color: #FFFFFF;" text="Ainda não possuí conta? Para se cadastrar no Easy Task é fácil! Basta cadastrar as seguintes informações:" textAlignment="JUSTIFY" wrapText="true">
+            <Label fx:id="msgCad" layoutX="293.0" layoutY="45.0" prefHeight="43.0" prefWidth="215.0" style="-fx-background-color: #FFFFFF;" text="Cadastro de usuário" textAlignment="JUSTIFY" wrapText="true">
                <font>
                   <Font size="24.0" />
                </font>
@@ -69,6 +69,15 @@
                   <Image url="@pics/login_logo.png" />
                </image>
             </ImageView>
+          <Button fx:id="voltar_cadastro_usuario" layoutX="14.0" layoutY="14.0" minWidth="31.0" mnemonicParsing="false" onAction="#voltar_cad_user" prefHeight="32.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF;">
+               <graphic>
+               <ImageView fitHeight="24.0" fitWidth="24.0">
+                  <image>
+                     <Image url="@pics/voltar.png" />
+                  </image>
+               </ImageView>
+               </graphic>
+         </Button>
          </children>
       </Pane>
       <Pane layoutY="495.0" prefHeight="106.0" prefWidth="800.0" style="-fx-background-color: #6fcf97;">

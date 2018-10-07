@@ -1,6 +1,7 @@
 package Front;
 
 import Easy_Task.core.Sessao;
+import Easy_Task.dao.TaskDAO;
 import Easy_Task.dao.UserDAO;
 import Easy_Task.entity.Task;
 import Easy_Task.entity.User;
@@ -36,14 +37,16 @@ public class Controller_Tela_Home implements Initializable {
 
     private final ObservableList<Task> data =
             FXCollections.observableArrayList(
-                    new Task(1, "Task","Dormir")
 
             );
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         User user = new User();
+        TaskDAO taskDAO = new TaskDAO();
         UserDAO userDAO = new UserDAO();
+        data.clear();
+        data.addAll(taskDAO.getAll());
         taskView.setItems(data);
         olaUser.setText("Olá " + userDAO.selectNome(Sessao.getUsuarioSessao().getEmail()) + "!");
 
@@ -55,6 +58,21 @@ public class Controller_Tela_Home implements Initializable {
             FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("TelaDeCadastroTarefas.fxml")));
             Parent root = loader.load();
             Controller_Tela_Cadastro_Tarefas controller = loader.getController();
+            Stage primaryStage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            //controller.setPreviousScene(primaryStage.getScene());
+            primaryStage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+        }
+    }
+
+    public void go_to_user(ActionEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("TelaDeDadosUsuario.fxml")));
+            Parent root = loader.load();
+            Controller_Tela_Dados_Usuario controller = loader.getController();
             Stage primaryStage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
             //controller.setPreviousScene(primaryStage.getScene());
             primaryStage.setScene(new Scene(root));

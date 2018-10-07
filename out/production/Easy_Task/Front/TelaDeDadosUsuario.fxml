@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #90EE90;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Front.Controller_Tela_Dados_Usuario">
+    <children>
+        <Label layoutX="14.0" layoutY="159.0" prefHeight="35.0" prefWidth="89.0" text="Nome:">
+            <font>
+                <Font size="24.0" />
+            </font></Label>
+        <TextField fx:id="nomeField_2" layoutX="92.0" layoutY="159.0" prefHeight="35.0" prefWidth="174.0" promptText="Digite seu nome">
+            <font>
+                <Font size="14.0" />
+            </font></TextField>
+        <Label layoutX="343.0" layoutY="159.0" prefHeight="35.0" prefWidth="130.0" text="Sobrenome:">
+            <font>
+                <Font size="24.0" />
+            </font></Label>
+        <TextField fx:id="sobrenomeField_2" layoutX="476.0" layoutY="159.0" prefHeight="35.0" prefWidth="203.0" promptText="Digite seu sobrenome">
+            <font>
+                <Font size="14.0" />
+            </font></TextField>
+        <Label layoutX="14.0" layoutY="216.0" prefHeight="35.0" prefWidth="78.0" text="E-mail:">
+            <font>
+                <Font size="24.0" />
+            </font></Label>
+        <TextField fx:id="emailField_2" layoutX="91.0" layoutY="216.0" prefHeight="35.0" prefWidth="591.0" promptText="Ex: seunome@servidor.com.br">
+            <font>
+                <Font size="14.0" />
+            </font></TextField>
+        <Label layoutX="14.0" layoutY="273.0" prefHeight="35.0" prefWidth="186.0" text="Cadastrar senha:">
+            <font>
+                <Font size="24.0" />
+            </font></Label>
+        <Label layoutX="14.0" layoutY="330.0" prefHeight="35.0" prefWidth="190.0" text="Confirmar senha:">
+            <font>
+                <Font size="24.0" />
+            </font></Label>
+        <PasswordField fx:id="senhaCadField_2" layoutX="200.0" layoutY="273.0" prefHeight="35.0" prefWidth="483.0" promptText="Cadastre uma nova senha">
+            <font>
+                <Font size="14.0" />
+            </font></PasswordField>
+        <PasswordField fx:id="confSenhaField_2" layoutX="200.0" layoutY="330.0" prefHeight="35.0" prefWidth="482.0" promptText="Confirme a senha cadastrado no campo anterior">
+            <font>
+                <Font size="14.0" />
+            </font></PasswordField>
+        <Label fx:id="msgErroCad_2" layoutX="14.0" layoutY="379.0" prefHeight="106.0" prefWidth="743.0" textAlignment="CENTER" textFill="#ff0202" wrapText="true">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <Pane prefHeight="132.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Label fx:id="msgCad_2" layoutX="207.0" layoutY="44.0" prefHeight="44.0" prefWidth="387.0" style="-fx-background-color: #FFFFFF;" text="Informações de cadastro do usuário" textAlignment="JUSTIFY" wrapText="true">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="104.0" fitWidth="132.0" layoutX="671.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@pics/login_logo.png" />
+                    </image>
+                </ImageView>
+            <Button defaultButton="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar_Dados_Usuario" prefHeight="35.0" prefWidth="42.0" style="-fx-background-color: #FFFFFF;">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@pics/voltar.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            </children>
+        </Pane>
+        <Pane layoutY="495.0" prefHeight="106.0" prefWidth="800.0" style="-fx-background-color: #6fcf97;">
+            <children>
+                <Button fx:id="confCad_2" layoutX="268.0" layoutY="15.0" mnemonicParsing="false" onAction="#confirmarAlteracao" prefHeight="63.0" prefWidth="281.0" style="-fx-background-color: #FFFFFF;" text="Confirmar alterações " wrapText="true">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

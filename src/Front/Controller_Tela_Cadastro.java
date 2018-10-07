@@ -4,10 +4,16 @@ import Easy_Task.dao.UserDAO;
 import Easy_Task.entity.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.util.Objects;
 
 public class Controller_Tela_Cadastro {
     @FXML
@@ -52,5 +58,20 @@ public class Controller_Tela_Cadastro {
 
 
 
+    }
+
+    public void voltar_cad_user(ActionEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("TelaDeLogin.fxml")));
+            Parent root = loader.load();
+            Controller_Tela_Login controller = loader.getController();
+            Stage primaryStage = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
+            //controller.setPreviousScene(primaryStage.getScene());
+            primaryStage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+        }
     }
 }

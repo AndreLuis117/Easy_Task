@@ -1,16 +1,15 @@
 package Easy_Task.entity;
 
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
-
-import java.sql.Date;
 
 public class Task {
     private SimpleLongProperty taskId;
     private SimpleStringProperty taskName;
     private SimpleStringProperty taskDescription;
+    private SimpleStringProperty taskHour;
+    private SimpleStringProperty taskDate;
 
 
     public String getTaskHour() {
@@ -26,18 +25,20 @@ public class Task {
         this.taskHour.set(taskHour);
     }
 
-    private SimpleStringProperty taskHour;
-    private SimpleStringProperty taskDate;
 
 
     //Construtor sem parametro
-    public Task (){}
+    public Task (){
+        this(0, "", "", "", "");
+    }
 
     //Constrtur com parametro
-    public Task(long id, String name, String description){
+    public Task(long id, String name, String description, String hour, String date){
         this.taskId = new SimpleLongProperty(id);
         this.taskName = new SimpleStringProperty(name);
         this.taskDescription = new SimpleStringProperty(description);
+        this.taskDate = new SimpleStringProperty(date);
+        this.taskHour = new SimpleStringProperty(hour);
 
     }
 
@@ -82,8 +83,8 @@ public class Task {
         return taskDate;
     }
 
-    public void setTaskDate(Date taskDate) {
-        this.taskDate.set(String.valueOf(taskDate));
+    public void setTaskDate(String taskDate) {
+        this.taskDate.set(taskDate);
     }
 }
 

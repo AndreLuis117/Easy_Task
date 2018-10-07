@@ -93,6 +93,7 @@ public class UserDAO {
     }
     // método para retornar o nome do usuário Logado na sessao
     public String selectNome(String email) {
+        String nome = "n";
         try {
             // Cria a conexão com o banco de dados
             Connection conn = (new ConnectionFactory()).getConnection();
@@ -104,8 +105,7 @@ public class UserDAO {
             ResultSet rs = p.executeQuery();
             rs.next();
             String result = rs.getString("usuarioNome");
-            Sessao.getUsuarioSessao().setName(result);
-
+            nome = result;
 
             p.close();
             // Fecha conexão com o banco de dados
@@ -113,9 +113,31 @@ public class UserDAO {
         }catch(Exception e) {
             e.printStackTrace();
         }
-        return Sessao.getUsuarioSessao().getName();
+        return nome;
     }
 
+    public String selectSobrenome(String email) {
+        String sobrename = "n";
+        try {
+            // Cria a conexão com o banco de dados
+            Connection conn = (new ConnectionFactory()).getConnection();
+
+            PreparedStatement p = conn.prepareStatement("select usuarioSobrenome from usuarios where usuarioEmail = ? ");
+            p.setString(1, email);
+
+            ResultSet rs = p.executeQuery();
+            rs.next();
+            String result = rs.getString("usuarioSobrenome");
+            sobrename = result;
+
+            p.close();
+            // Fecha conexão com o banco de dados
+            conn.close();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+        return sobrename;
+    }
 
     public boolean validarEmail(String email) {
         try {
@@ -129,12 +151,8 @@ public class UserDAO {
             ResultSet rs = p.executeQuery();
             if (rs.next()){
                 validacaoEmail = true;
-                System.out.println("Exite");
             }
-            else {validacaoEmail = false;
-                System.out.println("nao existe");
-            ;}
-
+            else {validacaoEmail = false; }
 
             p.close();
             // Fecha conexão com o banco de dados
@@ -145,6 +163,7 @@ public class UserDAO {
         return validacaoEmail;
     }
     public long selectId(String email) {
+        long id = 0;
         try {
             // Cria a conexão com o banco de dados
             Connection conn = (new ConnectionFactory()).getConnection();
@@ -156,8 +175,7 @@ public class UserDAO {
             ResultSet rs = p.executeQuery();
             rs.next();
             long result = rs.getLong("usuarioId");
-            Sessao.getUsuarioSessao().setId(result);
-
+            id = result;
 
             p.close();
             // Fecha conexão com o banco de dados
@@ -165,7 +183,7 @@ public class UserDAO {
         }catch(Exception e) {
             e.printStackTrace();
         }
-        return Sessao.getUsuarioSessao().getId();
+        return id;
     }
 
 
