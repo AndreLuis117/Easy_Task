@@ -38,7 +38,6 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (2,'Idris Elba',NULL,NULL,'Ragnarok'),(4,'André','Cardoso','email','andre7678'),(5,'André','Cardoso','emaildante','andre7678'),(6,'André',NULL,'email','andre7678'),(7,'André',NULL,'email','andre7678'),(8,'André',NULL,'email','andre7678'),(9,'André','Cardoso','emaildante','andre7678'),(10,'André','Cardoso','emaildante','andre7678'),(11,'André','Cardoso','emaildante','andre7678'),(12,'André','Cardoso','emaildante','andre7678'),(13,'André','Cardoso','emaildante','andre7678'),(14,'André','Cardoso','emaildante','andre7678'),(15,'André','Cardoso','emailde','andre7678'),(16,'André','Cardoso','emailde','andre7678'),(17,'André','Cardoso','emailde','andre7678'),(18,'André','Cardoso','emailde','andre7678'),(19,'André','Cardoso','emaildante','andre7678'),(20,'André','Cardoso','emaildante','andre7678'),(21,'André','Cardoso','emaildante','andre7678'),(22,'André','Cardoso',NULL,'meteoro2018'),(23,'André','Luis','dantesparda10@live.com','meteoro');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-07 20:46:37
+-- Dump completed on 2018-10-08 19:59:44

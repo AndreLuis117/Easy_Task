@@ -32,7 +32,7 @@ CREATE TABLE `tarefas` (
   PRIMARY KEY (`tarefaId`),
   KEY `FK_USUARIO_ID` (`usuarioId`),
   CONSTRAINT `FK_USUARIO_ID` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`usuarioid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,6 @@ CREATE TABLE `tarefas` (
 
 LOCK TABLES `tarefas` WRITE;
 /*!40000 ALTER TABLE `tarefas` DISABLE KEYS */;
-INSERT INTO `tarefas` VALUES (1,'Tarefa teste','Teste de trefa',NULL,'',23),(2,'CAGAR','CAGAR HOJE','2018-10-04','12H',23),(3,'Ir para aula','Ir para aula','2018-10-18','19:00',23),(4,'Ir para casa','ir para casa','2018-10-05','',23),(5,'Reunião hoje','Reunião planejamento estratégico','2018-10-18','18:00',23),(6,'Teste','teste','2018-10-19','12:00',23),(7,'Teste de tarefa','Teste','2018-10-05','12h',23);
 /*!40000 ALTER TABLE `tarefas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-07 20:46:38
+-- Dump completed on 2018-10-08 19:59:44
