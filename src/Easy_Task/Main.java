@@ -15,15 +15,15 @@ public class Main {
 
 
         User user = new User();
-        user.setName("Andréee");
-        user.setLastname("Cardoso");
-        user.setPassword("a78");
-        user.setEmail("email");
+        //user.setName("Andréee");
+        //user.setLastname("Cardoso");
+        //user.setPassword("a78");
+        user.setEmail("dantesparda10@live.com");
 
         UserDAO userDAO = new UserDAO();
         Sessao.fazerLogin(user);
         Sessao sessao = new Sessao();
-        System.out.println(userDAO.selectId(sessao.getUsuarioSessao().getEmail()));
+        System.out.println(userDAO.selectId(Sessao.getUsuarioSessao().getEmail()));
 
         //userDAO.deleteAll();
         //userDAO.insert(user);

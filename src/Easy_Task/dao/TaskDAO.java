@@ -2,8 +2,6 @@ package Easy_Task.dao;
 
 import Easy_Task.core.Sessao;
 import Easy_Task.entity.Task;
-import Easy_Task.entity.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,15 +34,18 @@ public class TaskDAO {
     }
 
     public List<Task> getAll(){
-        List<Task> list = new ArrayList<>();
+            List<Task> list = new ArrayList<>();
+            UserDAO userDAO = new UserDAO();
 
         //Obtem a conexao com o BD
-        try(
-                Connection conn = (new ConnectionFactory()).getConnection();
-                Statement statement = conn.createStatement()
-        ){
+        try
+
+        {
+            Connection conn = (new ConnectionFactory()).getConnection();
+            PreparedStatement p = conn.prepareStatement("select * from tarefas where usuarioId = ?");
+            p.setLong(1,userDAO.selectId(Sessao.getUsuarioSessao().getEmail()));
             // Executa a query
-            ResultSet resultSet = statement.executeQuery("select * from tarefas where usuarioId = 23");
+            ResultSet resultSet = p.executeQuery();
 
             // Para cada resultado da query
             while(resultSet.next()){
