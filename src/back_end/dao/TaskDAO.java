@@ -1,11 +1,10 @@
-package Easy_Task.dao;
+package back_end.dao;
 
-import Easy_Task.core.Sessao;
-import Easy_Task.entity.Task;
+import back_end.core.Sessao;
+import back_end.entity.Task;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +17,13 @@ public class TaskDAO {
 
             Connection conn = (new ConnectionFactory()).getConnection();
             PreparedStatement p =
-                    conn.prepareStatement("insert into tarefas(tarefaNome,tarefaDescricao,tarefaHora, tarefaData, usuarioId) values(?, ?, ?, ?, ?) ");
+                    conn.prepareStatement("insert into tarefas(tarefaNome,tarefaDescricao,tarefaHora, tarefaData, usuarioId, tarefaStatus) values(?, ?, ?, ?, ?, ?) ");
             p.setString(1, task.getTaskName());
             p.setString(2, task.getTaskDescription());
             p.setString(3, task.getTaskHour());
             p.setString(4,task.getTaskDate());
             p.setLong(5, USERdao.selectId(Sessao.getUsuarioSessao().getEmail()));
+            p.setString(6, "A");
 
             p.execute();
             p.close();
@@ -32,6 +32,23 @@ public class TaskDAO {
             e.printStackTrace();
         }
     }
+
+    public void deleteUser(long id) {
+        try {
+            // Cria a conexão com o banco de dados
+            Connection conn = (new ConnectionFactory()).getConnection();
+            PreparedStatement p =
+                    conn.prepareStatement("delete from tarefas where tarefaId = ?");
+
+            p.setLong(1, id);
+            p.execute();
+            p.close();
+            conn.close();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public List<Task> getAll(){
             List<Task> list = new ArrayList<>();
@@ -42,7 +59,7 @@ public class TaskDAO {
 
         {
             Connection conn = (new ConnectionFactory()).getConnection();
-            PreparedStatement p = conn.prepareStatement("select * from tarefas where usuarioId = ?");
+            PreparedStatement p = conn.prepareStatement("select * from tarefas where usuarioId = ? and tarefaStatus = 'A'");
             p.setLong(1,userDAO.selectId(Sessao.getUsuarioSessao().getEmail()));
             // Executa a query
             ResultSet resultSet = p.executeQuery();
@@ -71,4 +88,23 @@ public class TaskDAO {
         return list;
     }
 
+
+    public void update_task_status (Task task) {
+        try {
+            // Cria a conexão com o banco de dados
+            Connection conn = (new ConnectionFactory()).getConnection();
+            PreparedStatement p =
+                    conn.prepareStatement("update tarefas set tarefaStatus = ? where tarefaId = ?");
+            p.setString(1,task.getTaskStatus());
+            p.setLong(2, task.getTaskId());
+
+
+            p.execute();
+            p.close();
+            conn.close();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -1,12 +1,12 @@
-package Easy_Task.dao;
+package back_end.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import Easy_Task.entity.User;
-import Easy_Task.core.Sessao;
+import back_end.entity.User;
+import back_end.core.Sessao;
 
 public class UserDAO {
     public boolean validacaoEmail;

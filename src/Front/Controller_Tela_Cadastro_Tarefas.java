@@ -1,7 +1,8 @@
-package Front;
+package front;
 
-import Easy_Task.dao.TaskDAO;
-import Easy_Task.entity.Task;
+import back_end.dao.TaskDAO;
+import back_end.entity.Task;
+import front.Controller_Tela_Home;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

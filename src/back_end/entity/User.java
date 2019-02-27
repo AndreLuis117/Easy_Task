@@ -1,4 +1,4 @@
-package Easy_Task.entity;
+package back_end.entity;
 
 public class User {
 

@@ -1,4 +1,4 @@
-package Easy_Task.entity;
+package back_end.entity;
 
 
 import javafx.beans.property.SimpleLongProperty;
@@ -10,6 +10,7 @@ public class Task {
     private SimpleStringProperty taskDescription;
     private SimpleStringProperty taskHour;
     private SimpleStringProperty taskDate;
+    private  SimpleStringProperty taskStatus;
 
 
     public String getTaskHour() {
@@ -29,16 +30,17 @@ public class Task {
 
     //Construtor sem parametro
     public Task (){
-        this(0, "", "", "", "");
+        this(0, "", "", "", "","");
     }
 
     //Constrtur com parametro
-    public Task(long id, String name, String description, String hour, String date){
+    public Task(long id, String name, String description, String hour, String date, String status){
         this.taskId = new SimpleLongProperty(id);
         this.taskName = new SimpleStringProperty(name);
         this.taskDescription = new SimpleStringProperty(description);
         this.taskDate = new SimpleStringProperty(date);
         this.taskHour = new SimpleStringProperty(hour);
+        this.taskStatus = new SimpleStringProperty(status);
 
     }
 
@@ -85,6 +87,18 @@ public class Task {
 
     public void setTaskDate(String taskDate) {
         this.taskDate.set(taskDate);
+    }
+
+    public String getTaskStatus() {
+        return taskStatus.get();
+    }
+
+    public SimpleStringProperty taskStatusProperty() {
+        return taskStatus;
+    }
+
+    public void setTaskStatus(String taskStatus) {
+        this.taskStatus.set(taskStatus);
     }
 }
 

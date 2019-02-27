@@ -1,4 +1,4 @@
-package Easy_Task.dao;
+package back_end.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

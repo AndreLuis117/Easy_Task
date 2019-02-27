@@ -1,7 +1,7 @@
-package Easy_Task.core;
+package back_end.core;
 
-import Easy_Task.dao.ConnectionFactory;
-import Easy_Task.entity.User;
+import back_end.dao.ConnectionFactory;
+import back_end.entity.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

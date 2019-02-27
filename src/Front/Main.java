@@ -1,14 +1,10 @@
-package Front;
+package front;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextInputControl;
 import javafx.stage.Stage;
-
-import java.awt.*;
 
 public class Main extends Application {
 
@@ -23,10 +19,12 @@ public class Main extends Application {
 
         //carregar a tela
         Parent root = FXMLLoader.load(getClass().getResource("TelaDeLogin.fxml"));
-        primaryStage.setTitle("Tela de Login");
         //atribui o nome da janela
+        primaryStage.setTitle("Tela de Login");
         //atribui o tamanho da janela
         primaryStage.setScene(new Scene(root, 800, 600));
+        //deixar a tela sem o botão de redimensionar
+        primaryStage.resizableProperty().setValue(Boolean.FALSE);
         //exibe a janela
         primaryStage.show();
     }

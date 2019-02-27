@@ -1,13 +1,8 @@
-package Easy_Task;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+package back_end;
 
-import Easy_Task.core.Sessao;
-import Easy_Task.dao.UserDAO;
-import Easy_Task.entity.User;
+import back_end.core.Sessao;
+import back_end.dao.UserDAO;
+import back_end.entity.User;
 
 public class Main {
 
